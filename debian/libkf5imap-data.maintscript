@@ -1,0 +1,2 @@
+rm_conffile /etc/xdg/kimap.categories 20.04.1-2~
+rm_conffile /etc/xdg/kimap.renamecategories 20.04.1-2~

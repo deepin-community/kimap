@@ -1,0 +1,63 @@
+Source: kimap
+Section: libs
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Norbert Preining <norbert@preining.info>,
+           Sandro Knauß <hefee@debian.org>,
+Build-Depends: cmake (>= 3.16~),
+               debhelper-compat (= 13),
+               extra-cmake-modules (>= 5.83.0~),
+               gettext,
+               libkf5coreaddons-dev (>= 5.83.0~),
+               libkf5i18n-dev (>= 5.83.0~),
+               libkf5kio-dev (>= 5.83.0~),
+               libkf5mime-dev (>= 21.08.1~),
+               libsasl2-dev,
+               libsasl2-modules,
+               pkg-kde-tools (>> 0.15.15),
+               qtbase5-dev (>= 5.15.0~),
+Standards-Version: 4.6.0
+Homepage: https://invent.kde.org/pim/kimap
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/kde/kimap
+Vcs-Git: https://salsa.debian.org/qt-kde-team/kde/kimap.git
+Rules-Requires-Root: no
+
+Package: libkf5imap-data
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: library for handling IMAP data - arch independent files
+ This library provides an API for handling data received from IMAP services.
+ IMAP (Internet Message Access Protocol) is one of the two most prevalent
+ Internet standard protocols for e-mail retrieval.
+ .
+ This package contains the arch independent data for KIMAP.
+
+Package: libkf5imap-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: libkf5coreaddons-dev (>= 5.83.0~),
+         libkf5i18n-dev (>= 5.83.0~),
+         libkf5imap5 (= ${binary:Version}),
+         libkf5mime-dev (>= 21.08.1~),
+         libsasl2-dev,
+         ${misc:Depends},
+Description: library for handling IMAP data - development files
+ This library provides an API for handling data received from IMAP services.
+ IMAP (Internet Message Access Protocol) is one of the two most prevalent
+ Internet standard protocols for e-mail retrieval.
+ .
+ This package contains the development files.
+
+Package: libkf5imap5
+Architecture: any
+Multi-Arch: same
+Depends: libkf5imap-data (>= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: library for handling IMAP data
+ This library provides an API for handling data received from IMAP services.
+ IMAP (Internet Message Access Protocol) is one of the two most prevalent
+ Internet standard protocols for e-mail retrieval.
+Provides: ${ABI:VirtualPackage}
